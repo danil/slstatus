@@ -41,6 +41,7 @@ static const char unknown_str[] = "n/a";
  * num_files           number of files in a directory  path
  *                                                     (/home/foo/Inbox/cur)
  * ram_free            free memory in GB               NULL
+ * ram_avail           available memory in GB          NULL
  * ram_perc            memory usage in percent         NULL
  * ram_total           total memory size in GB         NULL
  * ram_used            used memory in GB               NULL

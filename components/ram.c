@@ -13,13 +13,28 @@
 
 		if (pscanf("/proc/meminfo",
 		           "MemTotal: %ju kB\n"
-		           "MemFree: %ju kB\n"
-		           "MemAvailable: %ju kB\n",
-		           &free, &free, &free) != 3) {
+		           "MemFree: %ju kB\n",
+		           &free, &free) != 2) {
 			return NULL;
 		}
 
 		return fmt_human(free * 1024, 1024);
+	}
+
+	const char *
+	ram_avail(void)
+	{
+		uintmax_t avail;
+
+		if (pscanf("/proc/meminfo",
+		           "MemTotal: %ju kB\n"
+		           "MemFree: %ju kB\n"
+		           "MemAvailable: %ju kB\n",
+		           &avail, &avail, &avail) != 3) {
+			return NULL;
+		}
+
+		return fmt_human(avail * 1024, 1024);
 	}
 
 	const char *
