@@ -74,5 +74,6 @@ static const struct arg args[] = {
 	{ disk_free,     " %s",  "/" },
 	/* { vol_perc,      " ♪%s",  "/dev/snd/controlC0" }, */
 	{ datetime,      " %s",  "%b-%d-%a %Z %R      " },
+	/* { datetime,      " %s",  "%b-%d %Z %R" }, */
 	/* { keymap,        " %s", NULL }, */
 };
