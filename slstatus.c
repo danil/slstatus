@@ -42,7 +42,7 @@ difftimespec(struct timespec *res, struct timespec *a, struct timespec *b)
 static void
 usage(void)
 {
-	die("usage: %s [-s] [-1]", argv0);
+	die("usage: %s [-s]", argv0);
 }
 
 int
@@ -51,7 +51,7 @@ main(int argc, char *argv[])
 	struct sigaction act;
 	struct timespec start, current, diff, intspec, wait;
 	size_t i, len;
-	int sflag, xflag, ret;
+	int sflag, ret;
 	char status[MAXLEN];
 	const char *res;
 
@@ -59,9 +59,6 @@ main(int argc, char *argv[])
 	ARGBEGIN {
 		case 's':
 			sflag = 1;
-			break;
-		case '1':
-			xflag = 1;
 			break;
 		default:
 			usage();
@@ -109,10 +106,6 @@ main(int argc, char *argv[])
 			}
 			XFlush(dpy);
 		}
-
-    if (xflag) {
-			return 0;
-    }
 
 		if (!done) {
 			if (clock_gettime(CLOCK_MONOTONIC, &current) < 0) {
